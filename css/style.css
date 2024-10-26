@@ -1,0 +1,1001 @@
+/* Colors: #ffc107 (Base orange), #eca216 (Dark orange), #2d333d (Base background), #242931 (Dark background) */
+
+/* General */
+.clear { clear:both; }
+
+body {
+    font-family: "Segoe UI", "Helvetica Neue";
+    background-color: #2d333d;
+    margin: 0%;
+    overflow-x: hidden;
+}
+
+button, input[type=submit] { /* Buttons */ 
+    font-family: "Segoe UI", "Helvetica Neue";
+    cursor: pointer;
+    border: none;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    background-color: #ffc107;
+    border-radius: 6px;
+    font-size: 20px;
+    font-weight: 500;
+    padding: 12px 0;
+    margin-top: 5%;
+}
+button:hover, input[type=submit]:hover {
+    background-color: #eca216;
+    transition: 0.2s;
+}
+
+#loginBtn, .carRentBtn, .proceedResBtn, .confirmResBtn { /* Full width buttons */
+    width: 100%;
+}
+
+input:not(input[type=submit], input[type=checkbox]), select { /* Textfields */
+    font-family: "Segoe UI", "Helvetica Neue";
+    width: 100%;
+    padding: 8px 12px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 1px solid white;
+    transition: 0.5s;
+    outline: none;
+    border-radius: 6px;
+    background-color: #212529;
+    color:white;
+    font-size: 16px;
+}
+input:focus:not(input[type=submit], input[type=checkbox]), select:focus { /* Focus animation */
+    box-shadow: 0 0 7px #3671ca;
+    padding: 8px 12px;
+    margin: 8px 0;
+    border: 1px solid #3671ca;
+}
+
+h1, .bannerLink{
+    color: #ffc107;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+h2 {
+    color: white;
+    font-size: 50px;
+    font-weight: 600;
+    margin-top: 0;
+}
+
+p {
+    margin-top: -1em;
+    font-size: 20px;
+    color: rgb(190, 190, 190);
+}
+
+img {
+    border-radius: 6px;
+}
+
+.contentContainer {
+    margin: 2% 10% 10%;
+}
+
+.titleContainer {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.animateScrollUp {
+    animation: hFadeIn 2s 0.1s ease-out backwards;
+}
+
+/* Revert styles*/
+.footerRight p, .whyUsBtm h2, .fleetItem h1, .fleetItem h2, .fleetPage .fleetTitle h1, .xrayContainer p {
+    all: revert;
+}
+
+/* Navbar */
+.navContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    width: 100%;
+    background-color: #2d333d;
+    z-index: 1000;
+}
+
+/* Left navbar links */
+.navContainer ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.homeLogo {
+    float: left;
+    margin: 0 26px 0 0;
+}
+
+.navLinks a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    margin: 0 8px 0;
+    text-decoration: none;
+}
+
+.navLinks a:hover {
+    color: rgb(190, 190, 190);
+    transition: 0.2s;
+}
+
+.navActive {
+    color: #eca216 !important; 
+}
+
+/* Right navbar elements (Login and Searchbox) */
+.navRight {
+    display: flex;
+    margin-left: auto;
+}
+
+#navLoginBtn {
+    padding: 8px 13px;
+    margin: 9px 0 9px 15px;
+    font-size: 16px;
+}
+
+.navHamburger {
+    display: none;
+}
+
+.contentContainer {
+    margin: 120px 10% 10%; /* Adjust margin-top to account for navbar height */
+}
+
+/* Footer section */
+footer {
+    background-color: #242931;
+    width: 100%;
+}
+
+.footerContainer {
+    padding: 10px 0 100px 0;
+    margin: 0 10%;
+    display: flex;
+    align-items: center;
+}
+
+/* Azoom Logo */
+.footerLeft {
+    width: 33%;
+}
+
+/* Social media */
+.footerMiddle {
+    width: 33%;
+    text-align: center;
+}
+
+.footerIcons {
+    margin: 0 10px;
+    width: 35px;
+}
+
+/* Contact details */
+.footerRight {
+    width: 33%;
+    text-align: right;
+    color: white;
+}
+
+/* Login */
+/* Darken background */
+.modalBg {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.6);
+    padding-top: 60px;
+}
+
+#loginContent, #creditCardContent {
+    background-color: #242931;
+    margin: 5% auto 15% auto;
+    border-radius: 15px;
+    width: 350px;
+    padding: 0 45px 45px;
+    color: white;
+    animation: animatePopup 0.6s
+}
+
+.loginContainer {
+    display: inline-block;
+}
+
+.loginImg {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#invalidLogin {
+    color: red;
+    text-align: center;
+    font-size: 18px;
+    margin: revert;
+    display:none;
+}
+
+.loginXBtn { /* FIX DIV WIDTH CLICK ISSUE */
+    text-align: right;
+    font-size: 35px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-right: -25px;
+}
+
+#loginBtn, .confirmResBtn {
+    margin-bottom: 20px;
+}
+
+.forgotPwd {
+    float: right;
+}
+.forgotPwd a {
+    color: inherit;
+}
+
+/* Index.html */
+/* Banner */
+/* Title and button */
+.bannerLeft {
+    float: left;
+    height: 700px;
+    width: 40%;
+    margin-left: 10%;
+    display: flex;
+    align-items: center;
+}
+
+.bannerLeft h1 {
+    color: white;
+    font-size: 65px;
+    font-weight: 600;
+    margin-bottom: 5%;
+    margin-top: 0;
+}
+
+.bannerLeft p {
+    margin-top: 0;
+}
+
+.bannerBtn {
+    padding: 12px 30px;
+}
+
+.bannerLeft .bannerLink {
+    color: white;
+    margin-left: 50px;
+}
+
+/* Home and background */
+.bannerRight {
+    float: right;
+    height: 700px;
+    line-height: 700px;
+    width: 50%;
+    overflow-x: hidden;
+    background-image: url("../img/etc/rightBanner_bg.png");
+    background-attachment: fixed;
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: 300px 0px 300px #2d333d inset;
+    text-align: right;
+    animation: fadeIn 2s;
+}
+
+.bannerRight img {
+    vertical-align: middle;
+    animation: flyInRight 1s ease-out;
+}
+
+.reservation-form {
+    display: flex;
+    align-items: center; 
+    width: 100%; 
+    max-width: 600px; 
+    margin: auto; 
+    padding: 20px; /* Padding for spacing */
+    border-radius: 8px; /* Optional: Rounded corners */
+    background-color: #f9f9f9; /* Optional: Background color */
+}
+
+.input-container {
+    flex: 1; /* Allow this container to take up available space */
+    margin-right: 20px; /* Space between input fields and button */   
+}
+
+.input-box {
+    margin-bottom: 15px; /* Space between input fields */
+}
+
+label {
+    display: block; /* Make labels block-level for better spacing */
+    margin-bottom: 5px; /* Space between label and input */
+    font-weight: bold; /* Bold labels for emphasis */
+}
+
+input[type="date"] {
+    width: fit-content; /* Full width input */
+    padding: 10px; /* Padding for input fields */
+    border: 1px solid #ccc; /* Border for input fields */
+    border-radius: 4px; /* Rounded corners for inputs */
+    box-sizing: border-box; /* Include padding in width */
+}
+
+.reserve-btn {
+    display: flex; /* Flex container for the button */
+    align-items: center; /* Center button vertically */
+}
+
+/* About section */
+.aboutContainer {
+    margin: 7% 10%;
+    display: flex;
+    align-items: center;
+}
+/* Image */
+.aboutLeft {
+    width: 45%;
+}
+
+/* Title and button */
+.aboutRight {
+    float: right;
+    width: 55%;
+    display: flex;
+    align-items: center;
+}
+
+.aboutRight span {
+    margin-left: 60px;
+}
+
+.findOutBtn {
+    padding: 12px 35px;
+}
+
+/* Why us section */
+.whyUsWrapper {
+    background-image: url('../img/etc/whyUs_bg.png');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.whyUsContainer {
+    margin: 0 10%;
+    height: 650px;
+}
+
+/* Title */
+.whyUsTop {
+    width: 55%;
+    padding-top: 7%;
+    padding-bottom: 30px;
+    margin: 0 auto;
+    text-align: center;    
+}
+
+.whyUsTop h1 {
+    text-shadow: 0 0 20px rgb(0 0 0 / 0.3);
+}
+
+.whyUsTop h2 {
+    color: black;
+}
+
+.whyUsTop p {
+    color: rgb(100, 100, 100);
+}
+
+/* Boxes section */
+.whyUsBtm {
+    background: linear-gradient(to bottom, rgb(0 0 0 / 0) 50%, #2d333d 50%);
+}
+
+.whyUsBtm span {
+    color:white;
+}
+
+.whyUsBtmWrapper {
+    display: flex;
+    margin: 0 10%;
+    justify-content: center;
+}
+
+.whyUsBox {
+    width: 100%;
+    margin: 2%;
+    background-color: #2d333d;
+    padding: 30px;
+    border-top: 8px solid #ffc107;
+    border-radius: 10px;
+    box-shadow: 0 20px 50px rgb(0 0 0 / 0.1);
+}
+
+.whyUsBox p {
+    font-size: 20px;
+    margin-top: 0;
+}
+
+/* Index.html Fleet secton */
+.indexPage .contentContainer {
+    margin-top: 8%;
+}
+
+.indexPage .titleContainer {
+    width: 55%;
+}
+
+/* For all fleet grid displays */
+/* Cars */
+.fleetContainer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.fleetItem {
+    margin: 3%;
+    padding: 15px;
+    box-shadow: 0 20px 50px rgb(0 0 0 / 0.2);
+    border-radius: 12px;
+    background-color: #e3e3e3;
+    display:flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.fleetItem p {
+    margin: 15px 0 0;
+    color: #eca216;
+    font-size: 15px;
+    text-align: right;
+}
+
+.fleetItem h1 {
+    margin: -25px 0 0;
+}
+
+.fleetItem h1::first-letter {
+    color: #eca216;
+}
+
+.fleetItem h1::after {
+    content: " /day";
+    color: rgb(100, 100, 100);
+    font-weight: 100;
+    font-size: 25px;
+}
+
+.fleetItem h2 {
+    font-weight: 400;
+}
+
+.carRentBtn {
+    margin-top: 2%;
+}
+
+/* See fleet button */
+.fullFleet { /* Container */
+    width: 100%;
+    text-align: center;
+}
+
+.fullFleet button {
+    width: 20%;
+}
+
+
+/* Newsletter section */
+.newsletterFalseFooter {
+    background: linear-gradient(to bottom, #2d333d 50%, #242931 50%);
+    width: 100%;
+    text-align: center;
+}
+
+/* Title */
+.newsletterContainer {
+    padding: 4% 6%;
+    display: inline-block;
+    vertical-align: middle;
+    background-color: #1c2026;
+    box-shadow: 0 20px 50px rgb(0 0 0 / 0.15);
+    border-radius: 12px;
+}
+
+/* Text and button */
+.newsletterContainer input {
+    width: 70% !important;
+}
+
+.newsletterBtn {
+    padding: 9px 13px;
+    font-size: 16px;
+    margin: 0;
+}
+
+
+
+
+
+/* FLEET.HTML FLEET.HTML FLEET.HTML FLEET.HTML FLEET.HTML FLEET.HTML FLEET.HTML FLEET.HTML */
+.fleetHeaderWrapper {
+    display: flex;
+    align-items: center;
+}
+
+/* Title */
+.fleetPage .fleetTitle {
+    color: white;
+    width: 35%;
+}
+
+/* Filters */
+.fleetFilters {
+    text-align: right;
+    width: 65%;
+}
+
+.filterBox {
+    cursor: pointer;
+    background-color: rgb(0 0 0 / 0);
+    color: white;
+    padding: 10px 25px;
+    margin: 0 10px;
+    font-size: 16px;
+    border: 1px solid white;
+    border-radius: 10px;
+}
+
+/* Filter dropdown */
+.filterDrop {
+    position: relative;
+    display: inline-block;
+    text-align: left;
+}
+
+.filterContent {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 150px;
+    box-shadow: 0px 10px 20px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    margin-left: 10px;
+    border-radius: 10px;
+    padding: 10px 0;
+}
+
+.filterContent label {
+    cursor: pointer;
+    padding: 12px 25px;
+    display: block;
+    user-select: none; 
+    font-weight: 500;
+}
+
+.filterContent input {
+    margin-right: 15px;
+}
+
+.filterDrop:hover .filterContent {
+    display: block;
+    animation: dropDownMenu 0.3s ease-in-out forwards;
+    transform-origin: top center;
+}
+
+.filterDrop:hover .filterBox {
+    background-color: #1f242b;
+}
+
+
+
+
+
+/* RENTFORM.HTML RENTFORM.HTML RENTFORM.HTML RENTFORM.HTML RENTFORM.HTML RENTFORM.HTML RENTFORM.HTML RENTFORM.HTML */
+.reservationContainer {
+    display: flex;
+}
+
+.xrayContainer {
+    width: 40%;
+}
+
+.xrayCar {
+    background-image: url('/img/cars/xray/konaXray.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+    display: flex;
+    width: 380px;
+    height: 800px;
+    margin-left: auto;
+    margin-right: 0;
+    position: relative;
+}
+
+/* Engine Spot  */
+.engineSpot { /* Spot coordinates */
+    position: absolute;
+    left: 177px;
+    top: 100px;
+}
+
+/* Infotainment Spot  */
+.infotainmentSpot {
+    position: absolute;
+    left: 177px;
+    top: 300px;
+}
+
+/* Seats Spot  */
+.seatsSpot {
+    position: absolute;
+    left: 177px;
+    top: 470px;
+}
+
+/* Boot Spot  */
+.bootSpot {
+    position: absolute;
+    left: 177px;
+    top: 730px;
+}
+
+.engineSpot span, .infotainmentSpot span, .seatsSpot span, .bootSpot span { /* Spot design */
+    border: 3px solid #ffc107;
+    border-radius: 50px;
+    height: 15px;
+    width: 15px;
+    display: flex;
+    align-self: center;
+}
+
+.engineSpot:hover span, .infotainmentSpot:hover span, .seatsSpot:hover span, .bootSpot:hover span { /* Spot hover effect */
+    box-shadow: 0 0 40px 10px #cc9900;
+    transform: scale(1.5);
+    transition: 0.2s;
+}
+
+.engineBox, .infotainmentBox, .seatsBox, .bootBox { /* Hide textbox */
+    display: none;
+}
+
+.engineSpot:hover .engineBox, .infotainmentSpot:hover .infotainmentBox, .seatsSpot:hover .seatsBox, .bootSpot:hover .bootBox { /* Show textbox */
+    display: inline-block;
+    background: black;
+    color: white;
+    position: relative;
+    left: 20px;
+    padding: 5px 20px;
+    border-radius: 15px;
+    min-width: 200px;
+    animation: dropDownMenu 0.3s ease-in-out forwards;
+    transform-origin: top center;
+}
+
+
+/* Booking form */
+.bookingFormContainer {
+    width: 60%;
+    display: flex;
+    align-items: center;
+    margin-left: 5%;
+}
+
+#bookingForm {
+    color: white;
+    padding: 30px;
+    background-color: #1f242b;
+    border-radius: 10px;
+}
+
+#bookingForm h1 {
+    margin-top: 0;
+}
+
+/* Rental details section */
+.rentalDetails {
+    width: 100%;
+    display: flex;
+}
+
+.rentalDetailsLeft {
+    display: grid;
+    width: 45%;
+    padding-right: 10%;
+}
+
+.rentalDetailsRight {
+    display: grid;
+    width: 45%;
+}
+
+.proceedResBtn {
+    padding: 10px 0;
+    margin-top: 50px;
+}
+
+
+/* Credit card info popup */
+#creditCardContent {
+    width: 500px;
+}
+
+#creditCardPopup h1 {
+    padding: 40px 0 10px;
+}
+
+.creditCardOwner {
+    width: 63%;
+    margin-right: 10px;
+}
+.creditCardCVV {
+    width: 35%;
+}
+
+.creditCardExpiration {
+    display: flex;
+}
+
+.creditCardExpiration select {
+    padding: 10px;
+    margin-right: 12px;
+    width: auto;
+}
+
+.creditCardImg {
+    display: flex;
+    align-items: center;
+    margin-left: 95px;
+}
+
+.creditCardImg img {
+    margin-left: 10px;
+}
+
+.transparent {
+    opacity: 0.2;
+}
+
+
+/* Success page */
+#successPage {
+    margin-top: 250px;
+    background-color: #2d333d;
+}
+
+.messageContainer {
+    margin: auto auto;
+    width: 800px;
+    text-align: center;
+}
+
+.messageContainer p {
+    margin-top: inherit;
+}
+
+.redirectLogo {
+    animation: spin 2s 0.4s ease-in-out backwards infinite;
+}
+
+.redirectLink {
+    color: white;
+}
+
+
+
+
+
+/* HOWTO.HTML HOWTO.HTML HOWTO.HTML HOWTO.HTML HOWTO.HTML HOWTO.HTML HOWTO.HTML HOWTO.HTML */
+.pickUpContainer, .returnContainer {
+    width: 90%;
+    background-color: #1c2026;
+    border-radius: 10px;
+    padding: 5%;
+    display: flex;
+    align-items: center;
+}
+
+/* Pickup instructions section */
+.howToImg {
+    width: 65%;
+}
+.howToImg h1 {
+    margin-top: 0;
+}
+
+.howToSteps {
+    margin-left: 5%;
+    width: 30%;
+}
+.howToSteps h2 {
+    margin-bottom: 20px;
+}
+
+/* Return instructions section */
+.returnContainer {
+    margin-top: 5%;
+}
+
+.returnContainer .howToImg {
+    margin-left: 5%;
+}
+
+.returnContainer .howToSteps {
+    margin: 0;
+}
+
+
+
+
+
+/* ANIMATIONS ANIMATIONS ANIMATIONS ANIMATIONS ANIMATIONS ANIMATIONS ANIMATIONS ANIMATIONS */
+@keyframes flyInRight { /* For index.html banner's Honda E */
+    0% { transform: translateX(100%); }
+
+    100% { transform: translateX(0); }
+}
+
+@keyframes hFadeIn { /* For observer scroll into view */
+    0% {
+        opacity: 0;
+        transform: translateY(80%);
+    }
+    20% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(0%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0%);
+    }
+}
+
+@keyframes fadeIn { /* For index.html banner map background */
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes animatePopup { /* For login and credit card */
+    from {transform: translateY(-150%)} 
+    to {transform: translateY(0)}
+}
+
+@keyframes spin { /* AZoom logo loading animation (currently only for redirecting screen) */
+    0% {
+        transform:rotate(0deg);
+    }
+
+    50% {
+        transform:rotate(180deg);
+    }
+
+    100% {
+        transform:rotate(360deg);
+    }
+}
+
+@keyframes dropDownMenu { /* Responsive navbar, dropdown filter and car info hover */
+    0% {
+        transform: rotateX(-90deg)
+    }
+    70% {
+        transform: rotateX(20deg) 
+    }
+    100% {
+        transform: rotateX(0deg) 
+    }
+}
+
+
+
+
+
+/* RESPONSIVE RESPONSIVE RESPONSIVE RESPONSIVE RESPONSIVE RESPONSIVE RESPONSIVE RESPONSIVE */
+@media only screen and (max-width: 1200px) {
+    .fleetContainer {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .logoContainer img {
+        margin: 4%;
+    }
+}
+
+@media only screen and (max-width: 1100px) {
+    .reservationContainer {
+        display: block;
+    }
+    .xrayContainer {
+        width: revert;
+    }
+    .xrayCar {
+        margin: 0 auto;
+    }
+
+    .bookingFormContainer {
+        width: 70%;
+        margin: 5% auto 0;
+    }
+}
+
+/* Responsive navbar */
+@media only screen and (max-width: 980px) {
+    .navHamburger { /* Show hamburger */
+        display: block;
+        margin-left: auto;
+    }
+
+    .navContainer .navLinks{ /* Hide original nav items */
+        display: none;
+    }
+    .navContainer .navRight { /* Hide original nav items */
+        display: none;
+    }
+
+    #modalNavContainer {
+        position: absolute;
+        right: 11%;
+        top: 80px;
+        background-color: #242931;
+        border: 2px solid #ffc107;
+        border-radius: 8px;
+        z-index: 1;
+        display: none;
+        animation: dropDownMenu 0.3s ease-in-out forwards;
+        transform-origin: top center;
+    }
+
+    .modalLinkContainer {
+        display: grid;
+        padding: 20px 20px 0;
+    }
+    .modalLinkContainer a {
+        text-align: left;
+        padding-left: 0;
+    }
+
+    .modalNavLoginContainer {
+        padding: 20px;
+        background-color: #1c2026;
+        border-radius: 8px;
+    }
+
+    .modalNavLoginContainer #navLoginBtn, #modalNavContainer .navLinks .navSearchInput {
+        width: 100%;
+        margin: revert;
+    }
+}
+
+/* Hide responsive navbar contents */
+@media only screen and (min-width: 981px) { 
+    #modalNavContainer {
+        display: none !important;
+    }
+}
