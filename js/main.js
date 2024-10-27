@@ -193,7 +193,7 @@ function redirectCountDown() {
     var downloadTimer = setInterval(function(){
         if(timeleft < 0){
             clearInterval(downloadTimer);
-            window.location.href = "index.html";
+            window.location.href = "../index.html";
         } else {
             document.getElementById("redirectCD").innerHTML = timeleft;
         }
