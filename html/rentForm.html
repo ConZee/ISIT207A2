@@ -21,8 +21,6 @@
                     <a href="../index.html#about">About Us</a>
                     <a href="../index.html#fleet">Our Fleet</a>
                     <a href="../index.html#howto">How-to</a>
-                    <a href="rentForm.html">Rent</a>
-                    <a href="success.html">success</a>
                     <input id="navLoginBtn" type="submit" value="Login" onclick="loginLogoutTxt()"></button>
                 </div>
 
@@ -85,6 +83,18 @@
 
                     <label for="phone">Contact No.:</label>
                     <input type="tel" id="phone" placeholder="98765432" pattern="(6|8|9)\d{7}" required>
+
+                    <label for="carSelection">Select Car:</label>
+                    <select id="carSelection" required>
+                        <option value="">Choose a car</option>
+                        <option value="hyundai">Hyundai Ioniq 2018</option>
+                        <option value="honda">Honda E 2020</option>
+                        <option value="nissan">Nissan Leaf 2019</option>
+                        <option value="mini">Mini Electric 2020</option>
+                        <option value="tesla">Tesla Model 3 2021</option>
+                        <option value="bmw">BMW i4 2022</option>
+                        
+                    </select>
                     
                     <hr style="margin-top: 40px;">
 

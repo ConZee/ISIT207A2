@@ -548,7 +548,7 @@ input[type="date"] {
 
 #bookingForm {
     color: white;
-    margin-top: 70px;
+    margin-top: 70px; /* Margin to cater for navbar height */
     padding: 30px;
     background-color: #1f242b;
     border-radius: 10px;

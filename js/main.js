@@ -29,14 +29,10 @@ function scrollToFleet() {
     }
 }
 
-// Login and Credit card popup; Closes form when user clicks outside of it.
+// Login popup; Closes form when user clicks outside of it.
 window.onclick = function closeModal(event) {
     if (event.target == document.getElementById("loginPopup")) {
         document.getElementById("loginPopup").style.display = "none";
-    }
-
-    if (event.target == document.getElementById("creditCardPopup")) {
-        document.getElementById("creditCardPopup").style.display = "none";
     }
 }
 
@@ -113,11 +109,6 @@ function loginLogoutTxt() {
     }
 }
 
-// Continue to reservation button
-document.getElementById("bookingForm").addEventListener("submit", (e) => {
-    e.preventDefault();
-    document.getElementById("creditCardPopup").style.display = "block";
-})
 
 // Min date for pickup date
 var today = new Date();
@@ -173,9 +164,24 @@ function prefillForm() {
 }
 
 function reserve() {
-    const pickUpDate = document.getElementById('pickUpDateInput').value; // Adjust to your actual input IDs
-    const returnDate = document.getElementById('returnDateInput').value; // Adjust to your actual input IDs
+    const pickUpDate = document.getElementById('pickUpDateInput').value; // Adjust to actual input IDs
+    const returnDate = document.getElementById('returnDateInput').value; // Adjust to actual input IDs
     window.location.href = `html/rentForm.html?pickUpDate=${pickUpDate}&returnDate=${returnDate}`;
+}
+
+function redirectToRentForm(carName) {
+    const url = `html/rentForm.html?car=${carName}`;
+    window.location.href = url;
+}
+
+function prefillCarSelection() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const car = urlParams.get('car');
+
+    if (car) {
+        const select = document.getElementById('carSelection');
+        select.value = car; 
+    }
 }
 
 // Countdown begins on page load for success.html
@@ -193,4 +199,7 @@ function redirectCountDown() {
 }
 
 // Rental form prefill loading
-window.onload = prefillForm;
+window.onload = function() {
+    prefillCarSelection();
+    prefillForm();
+};
