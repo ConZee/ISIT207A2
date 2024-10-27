@@ -1,11 +1,11 @@
-/* Colors: #ffc107 (Base orange), #eca216 (Dark orange), #2d333d (Base background), #242931 (Dark background) */
+/* Colors: #ffc107 (Base orange), #eca216 (Dark orange), #454e5d (Base background), #242931 (Dark background) */
 
 /* General */
 .clear { clear:both; }
 
 body {
     font-family: "Segoe UI", "Helvetica Neue";
-    background-color: #2d333d;
+    background-color: #454e5d;
     margin: 0%;
     overflow-x: hidden;
 }
@@ -103,7 +103,7 @@ img {
     position: fixed;
     height: 60px;
     width: 100%;
-    background-color: #2d333d;
+    background-color: #454e5d;
     z-index: 1000;
 }
 
@@ -154,7 +154,7 @@ img {
 
 /* Footer section */
 footer {
-    background-color: #242931;
+    background-color: #454e5d;
     width: 100%;
 }
 
@@ -203,7 +203,7 @@ footer {
 }
 
 #loginContent {
-    background-color: #242931;
+    background-color: #454e5d;
     margin: 5% auto 15% auto;
     border-radius: 15px;
     width: 350px;
@@ -263,7 +263,7 @@ footer {
     background-position: right;
     background-repeat: no-repeat;
     background-size: cover;
-    box-shadow: 300px 0px 300px #2d333d inset;
+    box-shadow: 300px 0px 300px #454e5d inset;
     text-align: right;
     animation: fadeIn 2s;
 }
@@ -312,12 +312,11 @@ footer {
     margin: auto; 
     padding: 20px; 
     border-radius: 8px; 
-    background-color: #f9f9f9; 
 }
 
 .input-container {
     flex: 1; 
-    margin-right: 20px;    
+    margin-right: 20px;   
 }
 
 .input-box {
@@ -407,7 +406,7 @@ input[type="date"] {
 
 /* Boxes section */
 .whyUsBtm {
-    background: linear-gradient(to bottom, rgb(0 0 0 / 0) 50%, #2d333d 50%);
+    background: linear-gradient(to bottom, rgb(0 0 0 / 0) 50%, #454e5d 50%);
 }
 
 .whyUsBtm span {
@@ -423,7 +422,7 @@ input[type="date"] {
 .whyUsBox {
     width: 100%;
     margin: 2%;
-    background-color: #2d333d;
+    background-color: #454e5d;
     padding: 30px;
     border-top: 8px solid #ffc107;
     border-radius: 10px;
@@ -583,7 +582,7 @@ input[type="date"] {
 /* Success page */
 #successPage {
     margin-top: 250px;
-    background-color: #2d333d;
+    background-color: #454e5d;
 }
 
 .messageContainer {
