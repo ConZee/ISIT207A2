@@ -152,40 +152,31 @@ document.getElementById("pickUpDate").addEventListener("change", (e) => {
     document.getElementById("returnDate").setAttribute("min", minRental);
 })
 
-// Credit card validation
-const cardNumber = document.getElementById("cardNumber");
-let visa = document.getElementById("visa");
-let mastercard = document.getElementById("mastercard");
-let amex = document.getElementById("amex");
-cardNumber.onkeyup = function() {
+// Rental form prefilling
+function navigateToRentForm() {
+    const pickUpDate = document.getElementById('pickUpDate').value;
+    const returnDate = document.getElementById('returnDate').value;
+    location.href = `html/rentForm.html?pickUpDate=${pickUpDate}&returnDate=${returnDate}`;
+}
 
-    visa.classList.add("transparent");
-    mastercard.classList.add("transparent");
-    amex.classList.add("transparent");
+function prefillForm() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const pickUpDate = urlParams.get('pickUpDate');
+    const returnDate = urlParams.get('returnDate');
 
-    var visaRegEx = /^4[0-9]{12}(?:[0-9]{3})?$/;
-    var masterRegEx = /^5[1-5][0-9]{14}$|^2(?:2(?:2[1-9]|[3-9][0-9])|[3-6][0-9][0-9]|7(?:[01][0-9]|20))[0-9]{12}$/;
-    var amexRegEx = /^3[47][0-9]{13}$/;
-    
-    if (cardNumber.value.replace(/\s/g, "").match(visaRegEx)) { // Toggles respective card that has been keyed in, based on regex
-        visa.classList.remove("transparent");
-    } else if (cardNumber.value.replace(/\s/g, "").match(masterRegEx)) {
-        mastercard.classList.remove("transparent");
-    } else if (cardNumber.value.replace(/\s/g, "").match(amexRegEx)) {
-        amex.classList.remove("transparent");
+    if (pickUpDate) {
+        document.getElementById('pickUpDate').value = pickUpDate;
+    }
+    if (returnDate) {
+        document.getElementById('returnDate').value = returnDate;
     }
 }
 
-// Reservation confirmed
-document.getElementById("creditCardContent").addEventListener("submit", (e) => {
-    e.preventDefault();
-    
-    if (visa.classList.contains("transparent") && mastercard.classList.contains("transparent") && amex.classList.contains("transparent")) {
-        alert("Please check your card details.")
-    } else {
-        location.href='success.html'
-    }
-})
+function reserve() {
+    const pickUpDate = document.getElementById('pickUpDateInput').value; // Adjust to your actual input IDs
+    const returnDate = document.getElementById('returnDateInput').value; // Adjust to your actual input IDs
+    window.location.href = `html/rentForm.html?pickUpDate=${pickUpDate}&returnDate=${returnDate}`;
+}
 
 // Countdown begins on page load for success.html
 function redirectCountDown() {
@@ -200,3 +191,6 @@ function redirectCountDown() {
         timeleft -= 1;
     }, 1000);
 }
+
+// Rental form prefill loading
+window.onload = prefillForm;
