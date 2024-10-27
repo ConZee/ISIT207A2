@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE-edge">
+        <meta name="viewport" content="width-device-width", initial-scale="1.0">
+
+        <title>AZoom Car Rental</title>
+        <link rel="icon" type="image/png" href="../img/logos/favicon.png">
+        <link rel="stylesheet" href="../css/style.css">
+    </head>
+
+
+    <body class="indexPage" onload="checkLogin()">
+        <header>
+            <div class="navContainer animateOnScroll">
+                <div class="homeLogo"><a href="../index.html"><img src="../img/logos/fullLogo-w.png" height="50px"></img></a></div>
+
+                <div class="navLinks">
+                    <a href="../index.html#home" class="navActive">Home</a>
+                    <a href="../index.html#about">About Us</a>
+                    <a href="../index.html#fleet">Our Fleet</a>
+                    <a href="../index.html#howto">How-to</a>
+                    <input id="navLoginBtn" type="submit" value="Login" onclick="loginLogoutTxt()"></button>
+                </div>
+
+                <div class="navHamburger" onclick="dropDownNav()">
+                    <img src="img/icons/hamburger.png">
+                </div>
+            </div>
+
+            <div id="modalNavContainer">
+                <div class="navLinks">
+                    <div class="modalLinkContainer">
+                        <form role="search"><input type="search" class="navSearchInput" placeholder="Search..." aria-label="Search"></form>
+                        <a href="../index.html#home" class="navActive">Home</a>
+                        <a href="../index.html#about">About Us</a>
+                        <a href="../index.html#fleet">Our Fleet</a>
+                        <a href="../index.html#howto">How-to</a>
+                    </div>
+
+                    <div class="modalNavLoginContainer">
+                        <input id="navLoginBtn" type="submit" value="Login" onclick="loginLogoutTxt()"></button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div id="loginPopup" class="modalBg">
+            <form id="loginContent">
+                <div class="loginContainer">
+                    <div onclick="document.getElementById('loginPopup').style.display='none'" class="loginXBtn">&times;</div>
+                    
+                    <div class="loginImg">
+                        <img src="../img/logos/logo-w.png" width="50px">
+                    </div>
+
+                    <p id="invalidLogin">Invalid username and/or password</p>
+
+                    <input type="text" name="username" id="usernameField" placeholder="Username">
+            
+                    <input type="password" name="password" id="passwordField" placeholder="Password">
+
+                    <input type="submit" value="Login" id="loginBtn" onclick="rememberMe()">
+                    <label><input type="checkbox" id="rememberMeCB" value="rememberMe"> Remember me</label>
+                    <span class="forgotPwd">Forgot <a href="#">password?</a></span>
+              </div>
+            </form>
+        </div>
+        <div class="clear"></div>
+          
+        <!-- Rent Page-->
+        <section class="rentForm" id="rentForm">
+            <div class="bookingFormContainer animateOnScroll">
+                <form id="bookingForm">
+                    <h1>Personal Particulars</h1>
+
+                    <label for="name">Full Name:</label>
+                    <input type="text" id="name" placeholder="John Doe" required>
+                    
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" placeholder="john.doe@email.com" required>
+
+                    <label for="phone">Contact No.:</label>
+                    <input type="tel" id="phone" placeholder="98765432" pattern="(6|8|9)\d{7}" required>
+
+                    <label for="carSelection">Select Car:</label>
+                    <select id="carSelection" required>
+                        <option value="">Choose a car</option>
+                        <option value="hyundai">Hyundai Ioniq 2018</option>
+                        <option value="honda">Honda E 2020</option>
+                        <option value="nissan">Nissan Leaf 2019</option>
+                        <option value="mini">Mini Electric 2020</option>
+                        <option value="tesla">Tesla Model 3 2021</option>
+                        <option value="bmw">BMW i4 2022</option>
+                        
+                    </select>
+                    
+                    <hr style="margin-top: 40px;">
+
+                    <h1>Rental Details</h1>
+                    <div class="rentalDetails">
+                        <div class="rentalDetailsLeft">
+                            <label for="pickUpDate">Pick-up Date:</label>
+                            <input type="date" id="pickUpDate" name="pickUpDate" required>
+                            
+                            <label for="pickUpTime">Pick-up Time:</label>
+                            <input type="time" id="pickUpTime" name="pickUpTime" min="08:00" max="22:00" required>
+                        </div>
+                        <div class="rentalDetailsRight">
+                            <label for="returnDate">Return Date:</label>
+                            <input type="date" id="returnDate" name="returnDate" required>
+                            
+                            <label for="returnTime">Return Time:</label>
+                            <input type="time" id="returnTime" name="returnTime" required>
+                        </div>
+                    </div>
+                    <button type="button" class="proceedRentBtn" onclick="validateAndProceed()">Continue</button>
+                </form>
+            </div>
+            <div class="clear"></div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <div class="footerContainer">
+                <span class="footerLeft">
+                    <a href="#home"><img src="../img/logos/fullLogo-w.png" width="150px"></a>
+                </span>
+
+                <span class="footerMiddle">
+                    <span>
+                        <a href="https://www.facebook.com/"><img class="footerIcons" src="../img/icons/facebook.png"></a>
+                        <a href="https://www.instagram.com/"><img class="footerIcons" src="../img/icons/instagram.png"></a>
+                        <a href="https://www.twitter.com/"><img class="footerIcons" src="../img/icons/twitter.png"></a>
+                    </span>
+                </span>
+
+                <span class="footerRight">
+                    <span>
+                        <p>Contact us:</p>
+                        <p>Email: enquiries@azoomrental.com</p>
+                        <p>+65 6123 9876</p>
+                        <p>Address: 60 Paya Lebar Road, Singapore 409051</p>
+                        <p>Address: 10 Sin Ming Drive, Singapore 575700</p>
+                    </span>
+                </span>
+            </div>
+        </footer>
+
+        <script src="../js/main.js"></script>
+    </body>
+
+</html>
