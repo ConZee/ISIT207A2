@@ -21,6 +21,14 @@ function dropDownNav() {
     }
 }
 
+// Scroll functions
+function scrollToFleet() {
+    const fleetSection = document.getElementById('fleet');
+    if (fleetSection) {
+        fleetSection.scrollIntoView({ behavior: 'smooth' });
+    }
+}
+
 // Login and Credit card popup; Closes form when user clicks outside of it.
 window.onclick = function closeModal(event) {
     if (event.target == document.getElementById("loginPopup")) {
@@ -48,7 +56,6 @@ document.getElementById("loginBtn").addEventListener("click", (e) => {
     }
 })
 
-
 // Remember me function for login
 const rememberCB = document.getElementById("rememberMeCB"),
       rUsername = document.getElementById("usernameField");
@@ -69,7 +76,6 @@ function rememberMe() {
       localStorage.checkbox = "";
     }
 }
-
 
 // Login cookie checker for each page to enable logout button
 function getCookie(cname) {
@@ -94,7 +100,6 @@ function checkLogin() {
     }
 }
 
-
 // Logout button
 function loginLogoutTxt() {
     const loginLogoutBtn = document.getElementById("navLoginBtn").value;
@@ -108,19 +113,11 @@ function loginLogoutTxt() {
     }
 }
 
-// Subscribe to newsletter button
-function newsletterSubscribe() {
-    if (document.getElementById("newsletterForm").checkValidity()) {
-        alert("Thank you for signing up for our newsletter!");
-    }
-}
-
 // Continue to reservation button
 document.getElementById("bookingForm").addEventListener("submit", (e) => {
     e.preventDefault();
     document.getElementById("creditCardPopup").style.display = "block";
 })
-
 
 // Min date for pickup date
 var today = new Date();
@@ -155,7 +152,6 @@ document.getElementById("pickUpDate").addEventListener("change", (e) => {
     document.getElementById("returnDate").setAttribute("min", minRental);
 })
 
-
 // Credit card validation
 const cardNumber = document.getElementById("cardNumber");
 let visa = document.getElementById("visa");
@@ -180,7 +176,6 @@ cardNumber.onkeyup = function() {
     }
 }
 
-
 // Reservation confirmed
 document.getElementById("creditCardContent").addEventListener("submit", (e) => {
     e.preventDefault();
@@ -191,7 +186,6 @@ document.getElementById("creditCardContent").addEventListener("submit", (e) => {
         location.href='success.html'
     }
 })
-
 
 // Countdown begins on page load for success.html
 function redirectCountDown() {

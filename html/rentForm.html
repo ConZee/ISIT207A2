@@ -21,7 +21,8 @@
                     <a href="#about">About Us</a>
                     <a href="#fleet">Our Fleet</a>
                     <a href="#howto">How-to</a>
-                    <a href="rentForm.html">Rent</a>
+                    <a href="html/rentForm.html">Rent</a>
+                    <a href="html/success.html">success</a>
                     <input id="navLoginBtn" type="submit" value="Login" onclick="loginLogoutTxt()"></button>
                 </div>
 
@@ -53,7 +54,7 @@
                     <div onclick="document.getElementById('loginPopup').style.display='none'" class="loginXBtn">&times;</div>
                     
                     <div class="loginImg">
-                        <img src="img/logos/logo-w.png" width="50px">
+                        <img src="../img/logos/logo-w.png" width="50px">
                     </div>
 
                     <p id="invalidLogin">Invalid username and/or password</p>
@@ -70,173 +71,57 @@
         </div>
         <div class="clear"></div>
           
-        <!-- SECTION BREAK --><!-- SECTION BREAK --><!-- SECTION BREAK --><!-- SECTION BREAK -->
+        <!-- Home Page-->
+        <div class="bookingFormContainer animateOnScroll">
+            <form id="bookingForm">
+                <h1>Personal Particulars</h1>
 
-        <div class="contentContainer">
-            <div class="titleContainer animateOnScroll">
-                <h1>Reservation</h1>
-                <h2>Hyundai Kona 2019</h2>
-            </div>
-            
-            <div class="reservationContainer">
-                <div class="xrayContainer animateOnScroll">
-                    <div class="xrayCar">
-                        <div class="engineSpot"><span></span>
-                            <div class="engineBox">
-                                <p><strong>Engine Capacity:</strong> 64.0kWh Electric Engine</p>
-                                <p><strong>Driving Range:</strong> 484km</p>
-                                <p><strong>Efficiency:</strong> 15.4kWh/100km</p>
-                                <p><strong>Torque:</strong> 395Nm</p>
-                                <p><strong>Top Speed:</strong> 167km/h</p>
-                            </div>
-                          </div>
-        
-                          <div class="infotainmentSpot"><span></span>
-                            <div class="infotainmentBox">
-                                <p><strong>Bluetooth:</strong> Yes</p>
-                                <p><strong>GPS Navigation:</strong> Yes</p>
-                                <p><strong>Android Auto:</strong> Yes</p>
-                                <p><strong>Apple CarPlay:</strong> Yes</p>
-                            </div>
-                          </div>
-                      
-                          <div class="seatsSpot"><span></span>
-                            <div class="seatsBox">
-                                <p><strong>Seating Capacity:</strong> 5 people</p>
-                            </div>
-                          </div>
-        
-                          <div class="bootSpot"><span></span>
-                            <div class="bootBox">
-                                <p><strong>Boot Capacity:</strong> 332 litres</p>
-                            </div>
-                          </div>
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" placeholder="John Doe" required>
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" placeholder="john.doe@email.com" required>
+
+                <label for="phone">Contact No.:</label>
+                <input type="tel" id="phone" placeholder="98765432" pattern="(6|8|9)\d{7}" required>
+                
+                <hr style="margin-top: 40px;">
+
+                <h1>Rental Details</h1>
+                <div class="rentalDetails">
+                    <div class="rentalDetailsLeft">
+                        <label for="pickUpDate">Pick-up Date:</label>
+                        <input type="date" id="pickUpDate" name="pickUpDate" required>
+                        
+                        <label for="pickUpTime">Pick-up Time:</label>
+                        <input type="time" id="pickUpTime" name="pickUpTime" min="08:00" max="22:00" required>
+                    </div>
+                    <div class="rentalDetailsRight">
+                        <label for="returnDate">Return Date:</label>
+                        <input type="date" id="returnDate" name="returnDate" required>
+                        
+                        <label for="returnTime">Return Time:</label>
+                        <input type="time" id="returnTime" name="returnTime" required>
                     </div>
                 </div>
-        
-                <div class="bookingFormContainer animateOnScroll">
-                    <form id="bookingForm">
-                        <h1>Personal Particulars</h1>
-    
-                        <label for="name">Full Name:</label>
-                        <input type="text" id="name" placeholder="John Doe" required>
-                        
-                        <label for="email">Email:</label>
-                        <input type="email" id="email" placeholder="john.doe@email.com" required>
-    
-                        <label for="phone">Contact No.:</label>
-                        <input type="tel" id="phone" placeholder="98765432" pattern="(6|8|9)\d{7}" required>
-                        
-                        <hr style="margin-top: 40px;">
-    
-                        <h1>Rental Details</h1>
-                        <div class="rentalDetails">
-                            <div class="rentalDetailsLeft">
-                                <label for="pickUpDate">Pick-up Date:</label>
-                                <input type="date" id="pickUpDate" name="pickUpDate" required>
-                                
-                                <label for="pickUpTime">Pick-up Time:</label>
-                                <input type="time" id="pickUpTime" name="pickUpTime" min="08:00" max="22:00" required>
-                                
-                                <label for="pickUpLocation">Pick-up Location:</label>
-                                <select id="pickUpLocation" name="pickUpLocation" required>
-                                    <option value="">Select Office</option>
-                                    <option value="branchOrchard">Wheelock Place (Orchard)</option>
-                                    <option value="branchEsplanade">Marina Square (Esplanade)</option>
-                                </select>
-                            </div>
-                            <div class="rentalDetailsRight">
-                                <label for="returnDate">Return Date:</label>
-                                <input type="date" id="returnDate" name="returnDate" required>
-                                
-                                <label for="returnTime">Return Time:</label>
-                                <input type="time" id="returnTime" name="returnTime" required>
-                                
-                                <label for="returnLocation">Return Location:</label>
-                                <select id="returnLocation" name="returnLocation" required>
-                                    <option value="">Select Carpark</option>
-                                    <option value="carparkAP">Angullia Park (Orchard)</option>
-                                    <option value="carparkMW">Millenia Walk (Esplanade)</option>
-                                    <option value="carparkGW">Great World (River Valley)</option>
-                                    <option value="carparkKallang">Leisure Park Kallang (Stadium)</option>
-                                </select>
-                            </div>
-                        </div>
-                        <button class="proceedResBtn">Continue</button>
-                    </form>
-                </div>
-            </div>
-        </div><div class="clear"></div>
-        
-        <!-- SECTION BREAK --><!-- SECTION BREAK --><!-- SECTION BREAK --><!-- SECTION BREAK -->
-
-        <div id="creditCardPopup" class="modalBg">
-            <form id="creditCardContent">
-                <h1>Confirm Reservation</h1>
-                    <div style="display: flex">
-                        <div class="creditCardOwner">
-                            <label for="owner">Cardholder</label>
-                            <input type="text" id="cardholder" placeholder="Full Name" required>
-                        </div>
-                        <div class="creditCardCVV">
-                            <label for="cvv">CVV</label>
-                            <input type="text" id="cvv" placeholder="***" pattern="[0-9]{3,4}" required>
-                        </div>
-                    </div>
-                    <div id="creditCardNumber">
-                        <label for="cardNumber">Card Number</label>
-                        <input type="text" id="cardNumber" placeholder="0000 0000 0000 0000" required>
-                    </div>
-                    
-                    <label>Expiration Date</label>
-                    <div class="creditCardExpiration" id="expiration-date">
-                        <select required>
-                            <option value="01">January</option>
-                            <option value="02">February </option>
-                            <option value="03">March</option>
-                            <option value="04">April</option>
-                            <option value="05">May</option>
-                            <option value="06">June</option>
-                            <option value="07">July</option>
-                            <option value="08">August</option>
-                            <option value="09">September</option>
-                            <option value="10">October</option>
-                            <option value="11">November</option>
-                            <option value="12">December</option>
-                        </select>
-                        <select>
-                            <option value="23"> 2023</option>
-                            <option value="24"> 2024</option>
-                            <option value="25"> 2025</option>
-                            <option value="26"> 2026</option>
-                            <option value="27"> 2027</option>
-                            <option value="28"> 2028</option>
-                        </select>
-
-                        <div class="creditCardImg">
-                            <img src="../img/icons/visa.png" id="visa">
-                            <img src="../img/icons/mastercard.png" id="mastercard">
-                            <img src="../img/icons/amex.png" id="amex">
-                        </div>
-                    </div>
-                    
-                    <button class="confirmResBtn">Confirm</button>
-                    <p style="font-size: 10px;">(Visa: 4716108999716531 | Master: 5281037048916168 | Amex: 371449635398431)</p>
+                <button class="proceedResBtn">Continue</button>
             </form>
-        </div><div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+
 
         <!-- Footer -->
         <footer>
             <div class="footerContainer">
                 <span class="footerLeft">
-                    <a href="#home"><img src="img/logos/fullLogo-w.png" width="150px"></a>
+                    <a href="#home"><img src="../img/logos/fullLogo-w.png" width="150px"></a>
                 </span>
 
                 <span class="footerMiddle">
                     <span>
-                        <a href="https://www.facebook.com/"><img class="footerIcons" src="img/icons/facebook.png"></a>
-                        <a href="https://www.instagram.com/"><img class="footerIcons" src="img/icons/instagram.png"></a>
-                        <a href="https://www.twitter.com/"><img class="footerIcons" src="img/icons/twitter.png"></a>
+                        <a href="https://www.facebook.com/"><img class="footerIcons" src="../img/icons/facebook.png"></a>
+                        <a href="https://www.instagram.com/"><img class="footerIcons" src="../img/icons/instagram.png"></a>
+                        <a href="https://www.twitter.com/"><img class="footerIcons" src="../img/icons/twitter.png"></a>
                     </span>
                 </span>
 
