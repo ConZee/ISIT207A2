@@ -189,6 +189,26 @@ function prefillCarSelection() {
   }
 }
 
+function validateAndProceed() {
+  // Assuming you have form fields with these IDs
+  const name = document.getElementById("name").value;
+  const email = document.getElementById("email").value;
+  const phone = document.getElementById("phone").value;
+  const pickUpDate = document.getElementById("pickUpDate").value;
+  const returnDate = document.getElementById("returnDate").value;
+  const pickUpTime = document.getElementById("pickUpTime").value;
+  const returnTime = document.getElementById("returnTime").value;
+  
+  // Check if the required fields are filled
+  if (!name || !email || !phone || !pickUpDate || !returnDate || !pickUpTime || !returnTime) {
+      alert("Please fill out all required fields.");
+      return; // Stop the function if validation fails
+  }
+
+  // If all fields are filled, proceed to success page
+  location.href = 'success.html';
+}
+
 // Countdown begins on page load for success.html
 function redirectCountDown() {
   var timeleft = 10;

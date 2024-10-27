@@ -29,7 +29,7 @@ button:hover, input[type=submit]:hover {
     transition: 0.2s;
 }
 
-#loginBtn, .carRentBtn, .proceedResBtn, .confirmResBtn { /* Full width buttons */
+#loginBtn, .carRentBtn, .proceedRentBtn, .confirmResBtn { /* Full width buttons */
     width: 100%;
 }
 
@@ -575,7 +575,7 @@ input[type="date"] {
     width: 45%;
 }
 
-.proceedResBtn {
+.proceedRentBtn {
     padding: 10px 0;
     margin-top: 50px;
 }
